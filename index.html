@@ -92,12 +92,12 @@
         }
 
         .blog-post a {
-            text-decoration: none; /* Removes the underline */
-            color: var(--text-color); /* Uses the text color */
+            text-decoration: none;
+            color: var(--text-color);
         }
 
         .blog-post a:hover {
-            color: var(--hover-color); /* Optional: Change color on hover */
+            color: var(--hover-color);
         }
 
         footer {
@@ -114,15 +114,6 @@
             font-size: 1.2em;
             color: var(--text-color);
         }
-
-        #content {
-            animation: fadeIn 0.5s;
-        }
-
-        @keyframes fadeIn {
-            from { opacity: 0; }
-            to { opacity: 1; }
-        }
     </style>
 </head>
 <body>
@@ -132,7 +123,6 @@
             <div>
                 <a href="#" class="active" data-page="home">Home</a>
                 <a href="#" data-page="blog">Blogs</a>
-                <!-- <a href="#" data-page="contact">Contact</a> -->
             </div>
             <button id="mode-toggle">🌓</button>
         </nav>
@@ -141,10 +131,6 @@
     <main id="content">
         <!-- Content will be dynamically loaded here -->
     </main>
-
-    <!-- <footer style="position: fixed; bottom: 0; left: 0; width: 100%; background-color: #f1f1f1; padding: 10px;">
-        <p style="margin-left: 20px;">&copy; 2024 Suraj Nag. All rights reserved.</p>
-    </footer> -->
 
     <script>
         const pages = {
@@ -187,7 +173,7 @@
                 <div class="blog-post">
                     <a href="blog-post2.html">
                         <h3><strong>12 months of Learning — Machine Learning</strong></h3>
-                        <p>So it’s been about 12 months since I started self-studying machine learning.</p>
+                        <p>So it's been about 12 months since I started self-studying machine learning.</p>
                     </a>
                 </div>
             `
@@ -195,11 +181,7 @@
 
         function loadPage(pageName) {
             const content = document.getElementById('content');
-            content.style.opacity = 0;
-            setTimeout(() => {
-                content.innerHTML = pages[pageName];
-                content.style.opacity = 1;
-            }, 300);
+            content.innerHTML = pages[pageName];
 
             document.querySelectorAll('nav a').forEach(link => {
                 link.classList.remove('active');
