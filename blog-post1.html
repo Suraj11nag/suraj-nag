@@ -31,7 +31,6 @@
             max-width: 800px;
             margin: 0 auto;
             padding: 40px 20px;
-            transition: background-color 0.3s, color 0.3s;
         }
 
         header {
@@ -51,7 +50,7 @@
         }
 
         h2 {
-            font-size: 2em; /* Adjusted font size for consistency */
+            font-size: 2em;
             margin-bottom: 20px;
             color: var(--accent-color);
         }
@@ -67,11 +66,16 @@
             text-decoration: none;
             color: var(--text-color);
             font-weight: 500;
-            transition: color 0.3s;
+            transition: none; /* Disable transition to check impact */
         }
 
         nav a:hover, nav a.active {
             color: var(--hover-color);
+        }
+
+        /* Prevent focus outline when clicking */
+        nav a:focus {
+            outline: none;
         }
 
         main {
@@ -98,7 +102,7 @@
     <header>
         <h1>Stay awhile and read</h1>
         <nav>
-            <a href="index.html">Home</a>
+            <a id="home-link" href="#">Home</a>
             <button id="mode-toggle">🌓</button>
         </nav>
     </header>
@@ -110,16 +114,18 @@
             Read more about it here.
         </a>
     </main>
-
-    <!-- <footer>
-        <p>&copy; 2024 Suraj Nag. All rights reserved.</p>
-    </footer> -->
-
+    
     <script>
         const modeToggle = document.getElementById('mode-toggle');
+        const homeLink = document.getElementById('home-link');
 
         modeToggle.addEventListener('click', () => {
             document.body.classList.toggle('dark-mode');
+        });
+
+        homeLink.addEventListener('click', (event) => {
+            event.preventDefault();
+            window.location.href = 'index.html'; // Prevent blink by smooth navigation
         });
     </script>
 </body>
