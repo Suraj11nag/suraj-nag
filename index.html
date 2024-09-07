@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Suraj Nag</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Roboto:wght@400&display=swap" rel="stylesheet">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🪴</text></svg>">
+    <style>
+        :root {
+            --bg-color: #ffffff;
+            --text-color: #333333;
+            --accent-color: #4a4a4a;
+            --hover-color: #000000;
+            --border-color: #e0e0e0;
+        }
+
+        .dark-mode {
+            --bg-color: #1a1a1a;
+            --text-color: #f0f0f0;
+            --accent-color: #b0b0b0;
+            --hover-color: #ffffff;
+            --border-color: #3a3a3a;
+        }
+
+        body {
+            font-family: 'Roboto', sans-serif;
+            line-height: 1.6;
+            color: var(--text-color);
+            background-color: var(--bg-color);
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 40px 20px;
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        header {
+            margin-bottom: 50px;
+            border-bottom: 1px solid var(--border-color);
+            padding-bottom: 20px;
+        }
+
+        h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 3em;
+            margin-bottom: 10px;
+        }
+
+        h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.8em;
+            margin-bottom: 20px;
+            color: var(--accent-color);
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        nav a {
+            margin-right: 20px;
+            text-decoration: none;
+            color: var(--text-color);
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        nav a:hover, nav a.active {
+            color: var(--hover-color);
+        }
+
+        .blog-post {
+            margin-bottom: 20px;
+            padding-bottom: 20px;
+            border-bottom: none;
+            border: none;
+        }
+
+        .blog-post h3 {
+            margin: 0;
+            font-size: 1.5em;
+        }
+
+        .blog-post p {
+            margin: 5px 0 0;
+            color: var(--accent-color);
+        }
+
+        .blog-post a {
+            text-decoration: none; /* Removes the underline */
+            color: var(--text-color); /* Uses the text color */
+        }
+
+        .blog-post a:hover {
+            color: var(--hover-color); /* Optional: Change color on hover */
+        }
+
+        footer {
+            margin-top: 50px;
+            text-align: center;
+            font-size: 0.9em;
+            color: var(--accent-color);
+        }
+
+        #mode-toggle {
+            background: none;
+            border: none;
+            cursor: pointer;
+            font-size: 1.2em;
+            color: var(--text-color);
+        }
+
+        #content {
+            animation: fadeIn 0.5s;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Suraj Nag</h1>
+        <nav>
+            <div>
+                <a href="#" class="active" data-page="home">Home</a>
+                <a href="#" data-page="blog">Blogs</a>
+                <!-- <a href="#" data-page="contact">Contact</a> -->
+            </div>
+            <button id="mode-toggle">🌓</button>
+        </nav>
+    </header>
+
+    <main id="content">
+        <!-- Content will be dynamically loaded here -->
+    </main>
+
+    <!-- <footer style="position: fixed; bottom: 0; left: 0; width: 100%; background-color: #f1f1f1; padding: 10px;">
+        <p style="margin-left: 20px;">&copy; 2024 Suraj Nag. All rights reserved.</p>
+    </footer> -->
+
+    <script>
+        const pages = {
+            home: `
+                <h2>Hello 👋</h2>
+                <p>I'm Suraj Nag, a data scientist with a focus on data science, data engineering, machine learning & beyond 🚀</p>
+                <p>Here, you'll find the thoughts and insights which I don't share on any other platform. Feel free to explore and get to know me better.</p>
+                <ul style="list-style-type: none; padding: 0; margin: 0; display: flex; gap: 15px; font-family: Arial, sans-serif;">
+                <li>
+                    <a href="https://www.linkedin.com/in/suraj11nag" target="_blank" style="text-decoration: underline; color: var(--link-color); transition: color 0.3s;">
+                        LinkedIn
+                    </a>
+                </li>
+                <li>
+                    <a href="https://github.com/Suraj11nag" target="_blank" style="text-decoration: underline; color: var(--link-color); transition: color 0.3s;">
+                        GitHub
+                    </a>
+                </li>
+                <li>
+                    <a href="https://medium.com/@suraj11nag" target="_blank" style="text-decoration: underline; color: var(--link-color); transition: color 0.3s;">
+                        Medium
+                    </a>
+                </li>
+                <li>
+                    <a href="https://twitter.com/Suraj11nag" target="_blank" style="text-decoration: underline; color: var(--link-color); transition: color 0.3s;">
+                        Twitter
+                    </a>
+                </li>
+            </ul>
+            `,
+            blog: `
+                <h2>Recent Thoughts</h2>
+                <div class="blog-post">
+                    <a href="blog-post1.html">
+                        <h3>Blog Post Title 1</h3>
+                        <p>Excerpt or introduction to Blog Post Title 1</p>
+                    </a>
+                </div>
+                <div class="blog-post">
+                    <a href="blog-post2.html">
+                        <h3>Blog Post Title 2</h3>
+                        <p>Excerpt or introduction to Blog Post Title 2</p>
+                    </a>
+                </div>
+            `
+        };
+
+        function loadPage(pageName) {
+            const content = document.getElementById('content');
+            content.style.opacity = 0;
+            setTimeout(() => {
+                content.innerHTML = pages[pageName];
+                content.style.opacity = 1;
+            }, 300);
+
+            document.querySelectorAll('nav a').forEach(link => {
+                link.classList.remove('active');
+                if (link.dataset.page === pageName) {
+                    link.classList.add('active');
+                }
+            });
+        }
+
+        document.querySelectorAll('nav a').forEach(link => {
+            link.addEventListener('click', (e) => {
+                e.preventDefault();
+                loadPage(e.target.dataset.page);
+            });
+        });
+
+        const modeToggle = document.getElementById('mode-toggle');
+        modeToggle.addEventListener('click', () => {
+            document.body.classList.toggle('dark-mode');
+        });
+
+        loadPage('home');
+    </script>
+</body>
+</html>
