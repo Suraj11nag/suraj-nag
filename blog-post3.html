@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stay a while and read</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Roboto:wght@400&display=swap" rel="stylesheet">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🪴</text></svg>">
+    <style>
+        :root {
+            --bg-color: #F8F9FA;
+            --text-color: #222222;
+            --accent-color: #20211A;
+            --hover-color: #000000;
+            --border-color: #e0e0e0;
+        }
+
+        body {
+            font-family: 'Helvetica', serif;
+            line-height: 1.6;
+            color: var(--text-color);
+            background-color: var(--bg-color);
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+
+        header {
+            margin-bottom: 20px;
+            border-bottom: 1px solid var(--border-color);
+            padding-bottom: 20px;
+        }
+
+        h1, h2 {
+            font-family: 'Merriweather', serif;
+        }
+
+        h1 {
+            font-size: 3em;
+            margin-bottom: 10px;
+            color: var(--accent-color);
+        }
+
+        h2 {
+            font-size: 2em;
+            margin-bottom: 20px;
+            color: var(--accent-color);
+        }
+
+        nav {
+            display: flex;
+            align-items: center;
+            gap: 20px; /* Adds space between nav links */
+        }
+
+        nav a {
+            text-decoration: none;
+            color: var(--text-color);
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        nav a:hover, nav a.active {
+            color: var(--hover-color);
+        }
+
+        main {
+            margin-top: 20px;
+        }
+
+        footer {
+            margin-top: 50px;
+            text-align: center;
+            font-size: 0.9em;
+            color: var(--accent-color);
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Stay and read</h1>
+        <nav>
+            <a id="home-link" href="#">Home</a>
+            <a id="blogs-link" href="#">Blogs</a>
+        </nav>
+    </header>
+
+    <main>
+        <h2>The Fundamentals: What Is Data Modeling?</h2>
+        <p>I’ll be walking you through some key concepts of data modeling, based on my own experience.</p>
+        <a href="https://medium.com/@suraj11nag/the-fundamentals-what-is-data-modeling-f140f5a7367c?sk=24986075e6e96ccdb1523a2c85b2a597" target="_blank" style="color: #331878; text-decoration: none; border-bottom: 1px solid #331878;">
+            Read more about it here.
+        </a>
+    </main>
+
+    <script>
+        const homeLink = document.getElementById('home-link');
+        const blogsLink = document.getElementById('blogs-link');
+
+        homeLink.addEventListener('click', (event) => {
+            event.preventDefault();
+            window.location.href = 'index.html'; // Navigate to Home
+        });
+
+        blogsLink.addEventListener('click', (event) => {
+            event.preventDefault();
+            window.location.href = 'blog.html'; // Navigate to Blogs page
+        });
+    </script>
+</body>
+</html>
